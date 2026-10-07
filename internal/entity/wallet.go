@@ -3,17 +3,11 @@ package entity
 import "time"
 
 type Wallet struct {
-	ID string
-
-	PlayerID string
-
-	Balance int64
-
-	Currency string
-
-	Version int64
-
-	CreatedAt time.Time
-
-	UpdatedAt time.Time
+	ID        string    `json:"id"`
+	PlayerID  string    `json:"playerId"`
+	Balance   int64     `json:"balance"`
+	Currency  string    `json:"currency"`
+	Version   int64     `json:"version"`
+	CreatedAt time.Time `json:"createdAt"`
+	UpdatedAt time.Time `json:"updatedAt"`
 }

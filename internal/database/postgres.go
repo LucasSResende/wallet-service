@@ -8,14 +8,8 @@ import (
 
 func NewPostgres() (*sql.DB, error) {
 
-	db, err := sql.Open(
-		"postgres",
-		"postgres://postgres:postgres@localhost:5432/wallet?sslmode=disable",
-	)
+	connStr :=
+		"host=localhost port=5432 user=postgres password=postgres dbname=wallet sslmode=disable"
 
-	if err != nil {
-		return nil, err
-	}
-
-	return db, nil
+	return sql.Open("postgres", connStr)
 }

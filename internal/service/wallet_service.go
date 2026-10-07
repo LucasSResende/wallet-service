@@ -1,0 +1,7 @@
+CreateWallet()
+
+GetWallet()
+
+Bet()
+
+Win()

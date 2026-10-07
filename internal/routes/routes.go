@@ -12,19 +12,33 @@ func RegisterRoutes(
 
 	http.HandleFunc(
 		"/wallets",
-		handler.CreateWallet,
+		func(w http.ResponseWriter, r *http.Request) {
+
+			switch r.Method {
+
+			case http.MethodPost:
+				handler.CreateWallet(w, r)
+
+			case http.MethodGet:
+				handler.GetWallet(w, r)
+
+			default:
+				http.Error(
+					w,
+					"method not allowed",
+					http.StatusMethodNotAllowed,
+				)
+			}
+		},
 	)
 
 	http.HandleFunc(
-	"/wallets/bet",
-	handler.Bet,
+		"/wallets/bet",
+		handler.Bet,
 	)
 
 	http.HandleFunc(
-	"/wallets/win",
-	handler.Win,
+		"/wallets/win",
+		handler.Win,
 	)
-
-
-
 }
